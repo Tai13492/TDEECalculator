@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tai.TDEECalculator.MainActivity">
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tai.TDEECalculator.MainActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="344dp"
+        android:layout_height="496dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="39dp"
+            android:layout_marginStart="39dp"
+            android:layout_marginTop="24dp"
+            android:text="Calculate your BMI and TDEE"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/plaintext_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="11dp"
+            android:ems="10"
+            android:hint="Enter weight in kg"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/plaintext_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/plaintext_weight"
+            android:layout_alignStart="@+id/plaintext_weight"
+            android:layout_below="@+id/plaintext_weight"
+            android:ems="10"
+            android:hint="Enter height in cm"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/plaintext_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/plaintext_height"
+            android:layout_alignStart="@+id/plaintext_height"
+            android:layout_below="@+id/plaintext_height"
+            android:ems="10"
+            android:hint="Enter age in years"
+            android:inputType="number"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button_calculateBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView4"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/textView4"
+            android:layout_marginBottom="22dp"
+            android:onClick="calculateBMI"
+            android:text="Calculate" />
+
+        <Spinner
+            android:id="@+id/spinner_gender"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView4"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/spinner_gender"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:text="Gender" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignLeft="@+id/plaintext_height"
+            android:layout_alignStart="@+id/plaintext_height"
+            android:text="Choose your activity level"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button_calculateBMI"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="9dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="316dp"
+            tools:layout_editor_absoluteY="0dp"
+            android:id="@+id/linearLayout">
+
+            <CheckBox
+                android:id="@+id/checkbox_sed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:text="Sedentary - Little or no exercise" />
+
+            <CheckBox
+                android:id="@+id/checkbox_lact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="Lightly active - Light exercise or sports 1-3 times per week" />
+
+            <CheckBox
+                android:id="@+id/checkbox_mact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:text="Moderately active - Moderate exercise or sports 3-5 times a week " />
+
+            <CheckBox
+                android:id="@+id/checkbox_vact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="Very active - Heavy exercise or sports 6-7 times a week" />
+
+            <CheckBox
+                android:id="@+id/checkbox_eact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="Extremely active - Heavy exercise and physical job/ exercise 2 times per day" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>
